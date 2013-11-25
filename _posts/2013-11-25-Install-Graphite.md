@@ -35,6 +35,7 @@ $ sudo pip install carbon
 $ sudo pip install graphite-web
 ```
 初始化配置，直接用 example 文件里的默认配置就可以：
+
 ```sh
 $ cd /opt/graphite/conf/
 
@@ -61,6 +62,7 @@ WSGISocketPrefix /var/run/apache2/wsgi
 $ sudo /etc/init.d/apache2 reload
 ```
 初始化 graphite 需要的数据库，修改 storage 的权限，用拷贝的方式创建 local_settings.py 文件：
+
 ```sh
 $ cd /opt/graphite/webapp/graphite/
 
@@ -71,6 +73,7 @@ $ sudo cp local_settings.py.example local_settings.py
 $ sudo /etc/init.d/apache2 restart
 ```
 启动 carbon：
+
 ```sh
 $ cd /opt/graphite/
 $ sudo ./bin/carbon-cache.py start
