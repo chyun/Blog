@@ -39,7 +39,7 @@ layout: default
       {% if related.url != page.url and related.link == null and (void == null or void != '2') %}
       <li>
         <span class="date">{{ related.date | date_to_string }}</span>
-        ▸ <a href="{{ related.url }}">{{ related.title }}</a>
+        ▸ <a href="{{ site.baseurl }}{{ related.url }}">{{ related.title }}</a>
       </li>
       {% capture void %}{% increment related_shown %}{% endcapture %}
       {% endif %}
