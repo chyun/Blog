@@ -4,37 +4,6 @@ description: >
   Install Graphite on ubuntu.
 layout: post
 categories: distribute
-styles: |
-  .attention {
-    padding: 1em 2em;
-    background: lightblue;
-    text-shadow: rgba(255,255,255,.8) 1px 1px 1px;
-    border-radius: 6px;
-  }
-  .attention li { margin-left: 2em }
-  .figwrapper {
-    max-width: 600px;
-    margin: 2em auto 3em;
-  }
-  figure {
-    margin: 0 auto; padding: 0;
-  }
-  figure img {
-    display: block;
-    max-width: 100%;
-    height: auto !important;
-    margin: 0 auto 1em;
-    box-shadow: 3px 3px 12px rgba(0,0,0,.3);
-  }
-  figcaption {
-    line-height: 1.2;
-    display: block;
-    padding: 0 .6em;
-    text-align: center;
-  }
-  @media only screen and (max-width : 480px) {
-    .figwrapper { max-width: 100%; margin-left: 0 }
-  }
 ---
 
 在 Ubuntu 12.04 上安装 Graphite 监控工具
