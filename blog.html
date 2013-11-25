@@ -29,10 +29,10 @@ description: >
       {% if post.link %}
       <h2><a class=entry-title href="{{ post.link | escape }}">{{ post.title }}</a>&nbsp;→</h2>
       {% else %}
-      <h2 class=entry-title><a rel=bookmark href="{{ post.url }}">{{ post.title }}</a></h2>
+      <h2 class=entry-title><a rel=bookmark href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
       {% endif %}
       <time datetime="{{ post.date | date_to_xmlschema }}" class=published pubdate>{{ post.date | date_to_string }}</time>
-      {% if post.link %}· <a href="{{ post.url }}" rel=bookmark title=permalink>∞</a>{% endif %}
+      {% if post.link %}· <a href="{{ site.baseurl }}{{ post.url }}" rel=bookmark title=permalink>∞</a>{% endif %}
     </header>
 
     {% if post.link %}
