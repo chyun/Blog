@@ -1,4 +1,4 @@
-baseurl:     /
+baseurl:     /TechBlog
 lsi:         false
 port:        4000
 pygments:    true
