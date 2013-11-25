@@ -38,7 +38,6 @@ $ sudo pip install graphite-web
 
 ```sh
 $ cd /opt/graphite/conf/
-
 $ sudo cp carbon.conf.example carbon.conf
 $ sudo cp storage-schemas.conf.example storage-schemas.conf
 $ sudo cp graphite.wsgi.example graphite.wsgi
@@ -65,11 +64,9 @@ $ sudo /etc/init.d/apache2 reload
 
 ```sh
 $ cd /opt/graphite/webapp/graphite/
-
 $ sudo python manage.py syncdb
 $ sudo chown -R www-data:www-data /opt/graphite/storage/
 $ sudo cp local_settings.py.example local_settings.py
-
 $ sudo /etc/init.d/apache2 restart
 ```
 启动 carbon：
