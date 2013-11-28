@@ -32,7 +32,7 @@ Content-Length: 33
 Content-Type: application/x-www-form-urlencoded
 Accept-Encoding: gzip, deflate
                                                                      //blank line
-lastName=Franks&firstName=Michael                                    //entity body
+lastName=Franks&firstName=Michael                                    \/\/entity body
 ```
 HTTP Responses
 --------
