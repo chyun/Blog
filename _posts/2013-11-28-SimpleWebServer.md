@@ -19,7 +19,8 @@ An HTTP request consists of three components:
 > - Entity body.
 
 An example of an HTTP request is the following:
-```
+
+```sh
 POST /examples/default.jsp HTTP/1.1                                  //method uri protocol/version
                                                                      //blank line
 Accept: text/plain; text/html
@@ -43,6 +44,7 @@ An HTTP request consists of three components:
 > - Entity body.
 
 An example of an HTTP response is the following:
+
 ```
 HTTP/1.1 200 OK 
 Server: Microsoft-IIS/4.0 
