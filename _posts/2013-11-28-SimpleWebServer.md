@@ -3,7 +3,7 @@ title: A Simple Web Server
 description: >
   how tomcat works 1 A Simple Web Server
 layout: post
-categories: distribute
+categories: tomcat learning
 ---
 
 how tomcat works: 1 A Simple Web Server!	{#welcome}
