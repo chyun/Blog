@@ -6,7 +6,7 @@ layout: post
 categories: tomcat learning
 ---
 
-how tomcat works: 1 A Simple Web Server!	{#welcome}
+how tomcat works: 1 A Simple Web Server!
 =====================
 
 HTTP Requests
@@ -52,7 +52,6 @@ Date: Mon, 5 Jan 2004 13:13:33 GMT
 Content-Type: text/html 
 Last-Modified: Mon, 5 Jan 2004 13:13:12 GMT 
 Content-Length: 112 
-                                                                     //blank line          
 <html>
 <head>
 <title>HTTP Response Example</title>
