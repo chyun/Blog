@@ -22,8 +22,9 @@ Have 5 methods
 > - public java.lang.String getServletInfo()
 
 HttpServlet version1:
+
 ```
-Listing 2.2: The HttpServer1 Class\'s await method  
+Listing 2.2: The HttpServer1 Class's await method  
  
 package ex02.pyrmont; 
  
@@ -109,9 +110,11 @@ public class HttpServer1 {
   } 
 }
 ```
+
 ServletProcessor1：
+
 ```
-    Listing 2.5: The StaticResourceProcessor class  
+Listing 2.5: The StaticResourceProcessor class  
  
 package ex02.pyrmont; 
  
@@ -153,21 +156,21 @@ public class ServletProcessor1 {
     try { 
       // create a URLClassLoader 
       URL[] urls = new URL[1]; 
-  URLStreamHandler streamHandler = null; 
-  File classPath = new File(Constants.WEB_ROOT); 
-  // the forming of repository is taken from the 
-  // createClassLoader method in 
-  // org.apache.catalina.startup.ClassLoaderFactory 
-  String repository = 
-   (new URL("file", null, classPath.getCanonicalPath() + 
-   File.separator)).toString() ; 
-  // the code for forming the URL is taken from 
-  // the addRepository method in 
-  // org.apache.catalina.loader.StandardClassLoader. 
-  urls[0] = new URL(null, repository, streamHandler); 
-  loader = new URLClassLoader(urls); 
-&nbsp;&nbsp;&nbsp;&nbsp;<span></span> }
-&nbsp;&nbsp;&nbsp;&nbsp;catch (IOException e) { 
+    URLStreamHandler streamHandler = null; 
+    File classPath = new File(Constants.WEB_ROOT); 
+    // the forming of repository is taken from the 
+    // createClassLoader method in 
+    // org.apache.catalina.startup.ClassLoaderFactory 
+    String repository = 
+    (new URL("file", null, classPath.getCanonicalPath() + 
+    File.separator)).toString() ; 
+    // the code for forming the URL is taken from 
+    // the addRepository method in 
+    // org.apache.catalina.loader.StandardClassLoader. 
+    urls[0] = new URL(null, repository, streamHandler); 
+    loader = new URLClassLoader(urls); 
+    }
+    catch (IOException e) { 
       System.out.println(e.toString() ); 
     } 
     Class myClass = null; 
@@ -197,6 +200,7 @@ public class ServletProcessor1 {
 ```
 
 此处有一个严重的安全问题：
+
 ```
     try {
        servlet = (Servlet) myClass.newInstanc
@@ -206,6 +210,7 @@ public class ServletProcessor1 {
 
 将reques, response参数传入servlet.service时，用到了向上转型。但是若servlet的使用者知道request, response的实际类型
 就可以向下转型，使用request, response中的方法,而这两个类中的部分方法是我们不希望用户使用的，因此此处要使用一个门面模式。
+
 ```
 Listing 2.7 shows an incomplete RequestFacade class. 
 Listing 2.7: The RequestFacade class  
@@ -230,7 +235,9 @@ public class RequestFacade implements ServletRequest {
   ... 
 } 
 ```
+
 将上述代码替换为：
+
 ```
 Servlet servlet = null;
 RequestFacade requestFacade = new RequestFacade(request);
@@ -240,4 +247,5 @@ try{
     servlet.service((ServletRequest) requestFacade, (ServletResponse) responseFacade); 
 }
 ```
+
 done.
