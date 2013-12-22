@@ -149,6 +149,7 @@ C=0x98badcfe
 D=0x98badcfe
     
 在java中用数组封装：
+
 ```
     private long[] state = new long[4]; // state (ABCD)  
     state[0] = 0x67452301L;  
@@ -174,6 +175,7 @@ H(X,Y,Z) =X^Y^Z
 I(X,Y,Z)=Y^(X|(~Z))
 
 java代码：
+
 ```
     /** 
      * F, G, H ,I 是4个基本的MD5函数 把它们封装成private方法，名字保持一致。 
@@ -221,6 +223,7 @@ Mj表示消息的第j个子分组（从0到15），常数ti是2^32*abs(sin(i)）
 ![enter image description here][3]
 
 java代码实现：
+
 ```
 /**
  * FF,GG,HH和II将调用F,G,H,I进行近一步变换 FF, GG, HH和II
@@ -263,6 +266,7 @@ private long II(long a, long b, long c, long d, long Mj, long s, long ac) {
 }
 ```
 循环哈希算法
+
 ```
 第一轮
 FF(a,b,c,d,M0,7,0xd76aa478）
@@ -335,6 +339,7 @@ HH(b,c,d,a,M2,23,0xc4ac5665）
 ```
 
 为了方便期间，我们定义一个所用到的s用4 * 4的矩形来存储。
+
 ```
 S = { {7, 12, 17, 22},
       {5,  9, 14, 20},
@@ -343,6 +348,7 @@ S = { {7, 12, 17, 22},
     }
 ```
 上面的部分用java代码实现：
+
 ```
 /**
  * MD5核心变换程序，有md5Update调用
