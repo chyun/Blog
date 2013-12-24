@@ -13,7 +13,7 @@ layout: default
 
 <p class="byline author vcard instapaper_ignore entry-unrelated">
   {% unless page.link %}
-  By <a href="/" rel=author class=fn lang=hr>Chyun</a>
+  By <a href="{{ site.baseurl }}" rel=author class=fn lang=hr>Chyun</a>
   {% endunless %}
   {% if page.updated %}
   on <time class=published datetime="{{ page.date | date_to_xmlschema }}" pubdate>{{ page.date | date_to_string }}</time>
