@@ -1,4 +1,6 @@
-cription: >
+---
+title: SHA1算法分析
+description: >
   SHA1算法分析
 layout: post
 categories: 密码Hash
