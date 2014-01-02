@@ -1,4 +1,6 @@
-cription: >
+---
+title:JAVA内存分配
+description: >
   JAVA内存分配
 layout: post
 categories: JAVA
