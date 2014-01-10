@@ -61,8 +61,8 @@ serverID.cpu.loadavg_15min  0.26 1389359474
 ---
 
 collectMem.sh，每分钟收集一次剩余内存
-```
 
+```
 #!/bin/bash
 
 while [ TRUE ]; do
