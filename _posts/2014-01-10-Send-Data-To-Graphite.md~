@@ -108,54 +108,6 @@ serverID.disk.remain 21 1389359997
 serverID.disk.remain 21 1389360057
 ```
 
-每秒网络流量采集
----
-
-collectNetwork.sh，每分钟收集一次网络流量
-
-```
-#!/bin/bash
-
-delay=60
-
-while [ TRUE ]; do
-
-	R1=`cat /sys/class/net/eth0/statistics/rx_bytes`
-	T1=`cat /sys/class/net/eth0/statistics/tx_bytes`
-	sleep 1
-	R2=`cat /sys/class/net/eth0/statistics/rx_bytes`
-	T2=`cat /sys/class/net/eth0/statistics/rx_bytes`
-
-	TBPS=`expr $T2 - $T1`
-	RBPS=`expr $R2 - $R1`
-
-	TKBPS=`expr $TBPS / 1024`
-	RKBPS=`expr $RBPS / 1024`
-
-	echo "serverID.network.upload $TKBPS $(date +%s)"
-
-	echo "serverID.network.download $RKBPS $(date +%s)"
-
-	sleep $delay
-done >>network_$(date +%Y%m%d).log
-```
-
-连接数采集
----
-
-collectConnectionNum.sh，每分钟收集一次与8080端口的连接数目
-
-```
-#!/bin/bash
-
-delay=60
-while [ TRUE ]; do
-	conn_num=`netstat tcp|grep 8080|wc -l`
-	echo "serverID.connection.number $conn_num $(date +%s)"
-	sleep $delay
-done >>connectionNum_$(date +%Y%m%d).log
-```
-
 给graphite发送数据
 ===
 
