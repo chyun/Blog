@@ -124,7 +124,7 @@ while [ TRUE ]; do
 	T1=`cat /sys/class/net/eth0/statistics/tx_bytes`
 	sleep 1
 	R2=`cat /sys/class/net/eth0/statistics/rx_bytes`
-	T2=`cat /sys/class/net/eth0/statistics/rx_bytes`
+	T2=`cat /sys/class/net/eth0/statistics/tx_bytes`
 
 	TBPS=`expr $T2 - $T1`
 	RBPS=`expr $R2 - $R1`
@@ -150,7 +150,7 @@ collectConnectionNum.sh，每分钟收集一次与8080端口的连接数目
 
 delay=60
 while [ TRUE ]; do
-	conn_num=`netstat tcp|grep 8080|wc -l`
+	conn_num=`netstat -anp|grep tcp|awk '{print $4}'|grep 8080|wc -l`
 	echo "serverID.connection.number $conn_num $(date +%s)"
 	sleep $delay
 done >>connectionNum_$(date +%Y%m%d).log
