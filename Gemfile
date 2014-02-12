@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
-
-gem 'listen'
-gem 'sass'
+gem "jekyll", "~> 1.4.3"
+gem "kramdown", "~> 1.3.1"
+gem "liquid", "~> 2.5.5"
+gem "maruku", "~> 0.7.0"
+gem 'github-pages', "~> 15"
+gem "rdiscount", "~> 2.1.7"
+gem "redcarpet", "~> 2.3.0"
+gem "RedCloth", "~> 4.2.9"
+#gem "ruby", "~> 2.1.0"
