@@ -1,0 +1,34 @@
+#roll_top,#fall{
+	position:relative;
+	cursor:pointer;
+	height:93px;
+	width:11px;
+}
+#ct{
+	position:relative;
+	cursor:pointer;
+	height:53px;
+	width:11px;
+}
+
+#roll_top {
+	background:url(/Blog/images/roll.png) no-repeat;
+}
+#fall {
+	background:url(/Blog/images/roll.png) no-repeat 0 -146px;
+}
+#ct {
+	background:url(/Blog/images/roll.png) no-repeat 0 -93px;
+}
+#roll {
+	display:block;
+	width:15px;
+	margin-right:0px;
+	position:fixed;
+	left:10%;
+	top:33%;
+	_margin-right:0px;
+	_position:absolute;
+	_margin-top:180px;
+	_top:expression(eval(document.documentElement.scrollTop));
+}
