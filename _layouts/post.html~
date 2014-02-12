@@ -22,10 +22,10 @@ layout: default
   By <a href="{{ site.baseurl }}" rel=author class=fn lang=hr>Chyun</a>
   {% endunless %}
   {% if page.updated %}
-  on <time class=published datetime="{{ page.date | date_to_xmlschema }}" pubdate>{{ page.date | date_to_string }}</time>
+  on <time class=published datetime="{{ post.date | date_to_xmlschema }}" pubdate>{{ post.date | date_to_string }}</time>
   <time class=updated datetime="{{ page.updated }}"></time>
   {% else %}
-  on <time class=updated datetime="{{ page.date | date_to_xmlschema }}" pubdate>{{ page.date | date_to_string }}</time>
+  on <time class=updated datetime="{{ post.date | date_to_xmlschema }}" pubdate>{{ post.date | date_to_string }}</time>
   {% endif %}
 </p>
 </header>
