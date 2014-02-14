@@ -866,8 +866,8 @@ article.sticky .featured-post {
 	margin: 24px 0;
 	margin: 1.714285714rem 0;
 	overflow: auto;
-	padding: 24px;
-	padding: 1.714285714rem;
+	padding: 0px;
+	padding: 0rem 0;
 }
 .entry-content pre code,
 .comment-content pre code {
