@@ -49,5 +49,5 @@ Cassandra允许key/value中的value是一个map(key/value_list)，即某个colum
 
 http://dongxicheng.org/nosql/cassandra-data-model/
 
-  [1]https://github.com/chyun/Blog/blob/gh-pages/images/CF.png?raw=true
-  [2]https://github.com/chyun/Blog/blob/gh-pages/images/SCF.png?raw=true
+  [1]: https://github.com/chyun/Blog/blob/gh-pages/images/CF.png?raw=true
+  [2]: https://github.com/chyun/Blog/blob/gh-pages/images/SCF.png?raw=true
