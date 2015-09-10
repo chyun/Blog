@@ -49,8 +49,11 @@ memtable是一张驻留在内存中的cql表:
 ```
 -每一个节点上, 每一个keyspace下的cql表都对应着一个memtable
 -memtable提供了较为快速的读写操作
--memtable中的数据是按照row key排序的, 并且相同的row key不会重复(row key相同的写操作会被over write).(参考自<Mastering Apache Cassandra - Second Edition>)
+-memtable所有写数据都是append的形式
+-memtable中的数据是按照token排序的, 关于这一点可用token函数来验证, 如下图所示.
 ```
+
+![enter image description here][2]
 
 Cssandra会在特定的时间, 将memtable中的数据刷到SSTable中, 当满足下文中的任意条件时, 就会触发该操作:
 
@@ -64,3 +67,4 @@ Cssandra会在特定的时间, 将memtable中的数据刷到SSTable中, 当满�
 关于Cssandra将memtable中的数据刷到SSTables,和SSTables的合并, 在一下篇继续介绍.
 
 [1]: https://github.com/chyun/Blog/blob/gh-pages/images/2015-09-08-cassandra-write.png?raw=true
+[2]: https://github.com/chyun/Blog/blob/gh-pages/images/2015-09-10-memtable-sort.png?raw=true
