@@ -1,0 +1,19 @@
+var convert = function(s, numRows) {
+    if (!s) {
+    	return s;
+    }
+    if (numRows < 2) {
+    	return s;
+    }
+    var a = [];
+    for (var l = 0; l < numRows; l++) {
+    	a[l] = [];
+    }
+    var i =0;
+    while (i < s.length) {
+    	var temp;
+    	for (var j = 0; j < numRows; j++) {
+
+    	}
+    }
+};

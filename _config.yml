@@ -5,7 +5,7 @@ pygments:    true
 markdown:    rdiscount
 rdiscount:   { extensions: [smart] }
 permalink:   /:year/:month/:title/
-destination: public
+#destination: public
 exclude:
 - bin
 - script
