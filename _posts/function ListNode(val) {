@@ -1,19 +1,87 @@
-var convert = function(s, numRows) {
-    if (!s) {
-    	return s;
-    }
-    if (numRows < 2) {
-    	return s;
-    }
-    var a = [];
-    for (var l = 0; l < numRows; l++) {
-    	a[l] = [];
-    }
-    var i =0;
-    while (i < s.length) {
-    	var temp;
-    	for (var j = 0; j < numRows; j++) {
-
+var longestPalindrome = function(s) {
+	if (!s) {
+		return s;
+	}
+	if(s.length == 1) {
+		return s;
+	}
+	if (s.length == 2) {
+		return s[0] == s[1]? s : s[0];
+	}
+	var ts = '';
+	ts = ts + '#';
+	for (var i = 0; i < s.length; i++) {
+		ts = ts + s[i];
+		ts = ts + '#';
+	}
+	var rad = [];
+	rad.push(0);
+	rad.push(1);
+	rad.push(s[0] == s[1] ? 2 : 0);
+	rad.push(s[0] == s[2] ? 3 : 1);
+	var i = 3;
+	console.log(ts);
+	while (i < ts.length - 1) {
+		console.log(i);
+		console.log(rad[i]);
+		if (rad[i] == 0) {
+			var l = 1;
+			var k = 1;
+			while ((i + k + l < ts.length) && (i + k - l >= 0)) {
+				if (( (i + k + l) & 1) == 0 ) {
+					l++;
+				} else {
+					if (ts[i + k + l] == ts[i + k - l]) {
+						l++;
+					} else {
+						break;
+					}
+				}
+			}
+			rad[i+k] = l - 1;
+			i = i + k;
+			console.log(rad);
+			continue;
+		}
+		for (var k = 1; k <= rad[i]; k++) {
+			if (rad[i-k] != rad[i] - k) {
+				rad[i+k] = rad[i-k] < (rad[i] - k) ? rad[i-k] : (rad[i] - k);
+				console.log('1rad[' + (i+k)+']=' + rad[i+k]);
+			} else {
+				l = rad[i-k] + 1;
+				while ((i + k + l < ts.length) && (i + k - l >= 0)) {
+					if (( (i + k + l) & 1) == 0 ) {
+						l++;
+					} else {
+						if (ts[i + k + l] == ts[i + k - l]) {
+							l++;
+						} else {
+							break;
+						}
+					}
+				}
+				rad[i+k] = l - 1;
+				console.log('2rad[' + (i+k)+']=' + rad[i+k]);
+			}
+		}
+		i = i + k - 1;
+	}
+	var max = 0;
+	var index = 0;
+    for (var j = 0; j < rad.length; j++) {
+    	if (rad[j] > max) {
+    		max = rad[j];
+    		index = j;
     	}
     }
+    var minIndex = index - max;
+    var maxIndex = index + max;
+    var ret = '';
+    for (var n = minIndex; n <=maxIndex ; n ++) {
+    	if ((n & 1) == 1) {
+    		ret = ret + ts[n];
+    	}
+    }
+    console.log(ret);
+    return ret;
 };
