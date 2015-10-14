@@ -1,87 +1,46 @@
-var longestPalindrome = function(s) {
-	if (!s) {
-		return s;
-	}
-	if(s.length == 1) {
-		return s;
-	}
-	if (s.length == 2) {
-		return s[0] == s[1]? s : s[0];
-	}
-	var ts = '';
-	ts = ts + '#';
-	for (var i = 0; i < s.length; i++) {
-		ts = ts + s[i];
-		ts = ts + '#';
-	}
-	var rad = [];
-	rad.push(0);
-	rad.push(1);
-	rad.push(s[0] == s[1] ? 2 : 0);
-	rad.push(s[0] == s[2] ? 3 : 1);
-	var i = 3;
-	console.log(ts);
-	while (i < ts.length - 1) {
-		console.log(i);
-		console.log(rad[i]);
-		if (rad[i] == 0) {
-			var l = 1;
-			var k = 1;
-			while ((i + k + l < ts.length) && (i + k - l >= 0)) {
-				if (( (i + k + l) & 1) == 0 ) {
-					l++;
-				} else {
-					if (ts[i + k + l] == ts[i + k - l]) {
-						l++;
-					} else {
-						break;
-					}
-				}
-			}
-			rad[i+k] = l - 1;
-			i = i + k;
-			console.log(rad);
-			continue;
-		}
-		for (var k = 1; k <= rad[i]; k++) {
-			if (rad[i-k] != rad[i] - k) {
-				rad[i+k] = rad[i-k] < (rad[i] - k) ? rad[i-k] : (rad[i] - k);
-				console.log('1rad[' + (i+k)+']=' + rad[i+k]);
-			} else {
-				l = rad[i-k] + 1;
-				while ((i + k + l < ts.length) && (i + k - l >= 0)) {
-					if (( (i + k + l) & 1) == 0 ) {
-						l++;
-					} else {
-						if (ts[i + k + l] == ts[i + k - l]) {
-							l++;
-						} else {
-							break;
-						}
-					}
-				}
-				rad[i+k] = l - 1;
-				console.log('2rad[' + (i+k)+']=' + rad[i+k]);
-			}
-		}
-		i = i + k - 1;
-	}
-	var max = 0;
-	var index = 0;
-    for (var j = 0; j < rad.length; j++) {
-    	if (rad[j] > max) {
-    		max = rad[j];
-    		index = j;
+var threeSumClosest = function(nums, target) {
+    if (nums.length == 0) {
+    	return 0;
+    }
+    var sum = 0;
+    for (var i = 0; i < nums.length; i++) {
+    	var losest;
+    	var left = i + 1;
+    	var right = nums.length - 1;
+    	while(left < right) {
+    		console.log(left);
+    		console.log(right);
+    		if (nums[i] + nums[left] + nums[right] == target) {
+    			return target;
+    		}
+    		if (nums[left] + nums[right] > target - nums[i]) {
+    			var temp = target - nums[i] - nums[left] - nums[right];
+    			temp = temp < 0 ? -temp : temp;
+    			if (closest == undefined) {
+    				closest = temp;
+    				sum = nums[left] + nums[right] + nums[i];
+    			} else {
+    				if (temp < closest) {
+    					closest = temp;
+    					sum = nums[left] + nums[right] + nums[i];
+    				}
+    			}
+    			right--;
+    		} else {
+    			var temp = target - nums[i] - nums[left] - nums[right];
+    			temp = temp < 0 ? -temp : temp;
+    			if (closest == undefined) {
+    				closest = temp;
+    				sum = nums[left] + nums[right] + nums[i];
+    			} else {
+    				if (temp < closest) {
+    					closest = temp;
+    					sum = nums[left] + nums[right] + nums[i];
+    				}
+    			}
+    			left++;
+    		}
     	}
     }
-    var minIndex = index - max;
-    var maxIndex = index + max;
-    var ret = '';
-    for (var n = minIndex; n <=maxIndex ; n ++) {
-    	if ((n & 1) == 1) {
-    		ret = ret + ts[n];
-    	}
-    }
-    console.log(ret);
-    return ret;
+    return sum;
 };

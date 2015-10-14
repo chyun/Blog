@@ -33,7 +33,7 @@ Cassandra允许key/value中的value是一个map(key/value_list)，即某个colum
 ![enter image description here][1]
  
 
-###Super Column Famil相对应y(SQL数据库不支持)
+###Super Column Family(SQL数据库不支持)
 每个SCF由一系列row组成，每个row包含一个key以及其对应的若干super column(不能存储column)。
 
 ![enter image description here][2]
