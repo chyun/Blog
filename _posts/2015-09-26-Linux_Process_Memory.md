@@ -1,3 +1,11 @@
+---
+title: LINUX 对进程内存分配的简单介绍
+description: >
+  LINUX 对进程内存分配的简单介绍
+layout: post
+categories: Cassandra
+---
+
 #进程内存结构
 
 本文简单介绍一下, 进程在运行时, 在内存中的结构, 关于Linux对内存的分页, 虚拟内存, 地址转换等内容属于操作系统的基础, 本文不作介绍.
@@ -20,7 +28,7 @@
                 
 上述几种内存区域中数据段、BSS和堆通常是被连续存储的——内存位置上是连续的(事实上在栈和堆之间还存在一个特殊的区域叫Mapping Area: 这是与mmap系统调用相关的区域, 本文暂不介绍), 而代码段和栈往往会被独立存放. 有趣的是, 堆和栈两个区域关系很"暧昧", 他们一个向下"长"(i386体系结构中栈向下, 堆向上), 一个向上"长", 相对而生. 但你不必担心他们会碰头，因为他们之间间隔很大(到底大到多少, 你可以从下面的例子程序计算一下), 绝少有机会能碰到一起.
 
-Note: 事实上在stack和heap之间还存在一种内存空间叫Mapping Area, 由系统调用mmap来分配, 一般用语分配较大的内存块, 如文件.
+Note: 事实上在stack和heap之间还存在一种内存空间叫Mapping Area, 由系统调用mmap来分配, 一般用于分配较大的内存块, 如文件.
 
 首先用一个小例子, 来更具体的说明一下这几个区域的差别.
 
@@ -105,7 +113,7 @@ Heap Location:
 	void *sbrk(intptr_t increment);
  ```
  
-brk将break指针直接设置为某个地址, 而sbrk将break从当前位置移动increment所指定的增量. brk在执行成功时返回0, 否则返回-1并设置errno为ENOMEM; sbrk成功时返回break移动之前所指向的地址, 否则返回(void *)-1.
+brk将break指针直接设置为某个地址, 而sbrk将break从当前位置移动increment所指定的增量. brk在执行成功时返回0, 否则返回-1并设置error为ENOMEM; sbrk成功时返回break移动之前所指向的地址, 否则返回(void *)-1.
 
 一个小技巧是, 如果将increment设置为0, 则可以获得当前break的地址.
 

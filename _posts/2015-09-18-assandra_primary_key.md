@@ -33,7 +33,7 @@ CREATE TABLE sample (
 			|  partition  |  column  |  column   |   column   |
 			|    key 2    |    1     |     2     |      3     |
 			+-------------+----------+-----------+------------+
-例如, 在sample中差日若干记录, 查询该表:
+例如, 在sample中插入若干记录, 查询该表:
 
 ```
 SELECT * FROM sample;
@@ -84,7 +84,7 @@ CREATE TABLE sample3 (
   PRIMARY KEY ((id), gmt_create)
 );
 ```
-在该表中出入若干纪录后, 使用select *查询该表, 得到如下纪录:
+在该表中插入若干纪录后, 使用select *查询该表, 得到如下纪录:
 
 ```
 id  | gmt_create | name  | score

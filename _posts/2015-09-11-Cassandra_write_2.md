@@ -40,7 +40,7 @@ Compaction的过程如下图所示:
 整合column
    整理column中的数据, 只保留timestamp最新的数据
 丢弃tombstone(Tombstone是Memtable中数据被删除的标记)
-   当tombstone的存在时间已经超过gc_grace_seconds(默认值是10天, 主要是为了已经删除的数据复活, 参考https://wiki.apache.org/cassandra/DistributedDeletes)
+   当tombstone的存在时间已经超过gc_grace_seconds(默认值是10天, 主要是为了防止已经删除的数据复活, 参考https://wiki.apache.org/cassandra/DistributedDeletes)
 ```
 
 
