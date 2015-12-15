@@ -11,8 +11,8 @@ categories: Cassandra
 SSTable是磁盘中对应CQL的存储结构, 如前所述, 当满足一定条件时, Cassandra会将Memtable中的数据刷到SSTable中.
 
 ```
-SSTable时不可修改的
-SSTable时按照token排序的
+SSTable是不可修改的
+SSTable是按照token排序的
 同时包含了Memtable中的数据被刷到SSTable时Memtable当时的状态信息
 ```
 
