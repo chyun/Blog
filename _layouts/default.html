@@ -11,6 +11,12 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 	<script src="{{site.baseurl}}/js/jquery-1.8.0.min.js"></script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
 	<script src="{{site.baseurl}}/js/chyun.js"></script>
     <meta charset="UTF-8">
     <title>{{ page.title | replace:'&nbsp;',' ' | escape }}</title>
